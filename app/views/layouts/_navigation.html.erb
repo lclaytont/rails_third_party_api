@@ -1,0 +1,14 @@
+<div class="nasty-nav">
+    <div class="nasty-inner">
+        <h3>U.D.A.</h3>
+
+        <ul class="nav-list">
+        <% if user_signed_in? %>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nasty-link" %></li>
+        <% else %>
+            <li><%= link_to "Sign Up", new_user_registration_path, class: "nasty-link" %></li>
+            <li><%= link_to "Log In", new_user_session_path, class: "nasty-link" %></li>
+        <% end %>
+        </ul>
+    </div>
+</div>

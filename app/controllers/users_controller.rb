@@ -15,9 +15,13 @@ class UsersController < ApplicationController
   def show
     require 'net/http'
     url = "https://api.github.com/users/#{@user.gh_name}"
+    rurl ="https://api.github.com/users/#{@user.gh_name}/repos" 
     uri = URI(url)
+    ruri = URI(rurl)
     response = Net::HTTP.get(uri)
+    response_two = Net::HTTP.get(ruri)
     @data = JSON.parse(response)
+    @repos = JSON.parse(response_two)
   end
 
   # GET /users/new
